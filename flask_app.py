@@ -38,3 +38,21 @@ def calculate():
             return render_template('calculator.html', printed_result="You cannot divide by zero")
 
     return render_template('calculator.html')
+
+from circle import Circle
+
+@app.route("/circle", methods=["GET", "POST"])
+def circle():
+    perimeter = None
+    radius = None
+
+    if request.method == "POST":
+        radius = float(request.form["radius"])
+        c = Circle(radius)
+        perimeter = round(c.perimeter(), 4)
+
+    return render_template("circle.html", perimeter=perimeter, radius=radius)
+
+
+if __name__ == "__main__":
+    app.run(debug=True)

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Circle Calculator</title>
+</head>
+<body>
+    <h1>Circle Calculator</h1>
+ 
+    <form method="POST" action="/circle">
+        <label for="radius">Enter Radius:</label>
+        <input type="number" id="radius" name="radius" step="any" required>
+        <button type="submit">Calculate</button>
+    </form>
+ 
+    {% if perimeter is not none %}
+        <h2>Results</h2>
+        <p>Radius: {{ radius }}</p>
+        <p>Perimeter: {{ perimeter }}</p>
+    {% endif %}
+ 
+    <br>
+    <a href="/">Back to Calculator</a>
+</body>
+</html>
